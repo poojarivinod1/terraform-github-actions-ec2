@@ -15,3 +15,14 @@ jobs: # pipeline. One workflow will have multiple pipeline
       - name: run init  
         run: terraform init
         
+      # search in google as "aws access key and secret key in github actions" --> AI Overview
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1 
+
+      - name: run plan  
+        run: terraform plan
+        
