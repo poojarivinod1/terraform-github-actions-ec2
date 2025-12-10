@@ -1,0 +1,17 @@
+# search in google as "github actions" --> Get started with actions --> concepts --> workflows and actions --> workflows --> scroll down --> click on "creating on example workflow" 
+name: ec2-creation
+# When to trigger this pipeline. We can trigger on push or manual or someother events like creating PR, updating PR, creating branches, creating issues. 
+on: [push] # anybody push in this, it will trigger
+jobs: # pipeline. One workflow will have multiple pipeline
+  terraform: # job name 
+    runs-on: ubuntu-latest # where to run # linux os
+    steps: # like stages in jenkins
+      - name: checkout the code
+        uses: actions/checkout@v6
+
+      - name: setup terraform # It will install terraform
+        uses: hashicorp/setup-terraform@v3 #search in google as "hashicorp setup terraform github action" --> Github
+
+      - name: run init  
+        run: terraform init
+        
