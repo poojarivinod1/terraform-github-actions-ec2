@@ -27,5 +27,5 @@ jobs: # pipeline. One workflow will have multiple pipeline
         run: terraform plan
         
       - name: run apply  
-        run: terraform apply -auto-approve
+        run: terraform destroy -auto-approve
         
